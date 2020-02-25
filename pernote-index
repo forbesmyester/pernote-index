@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+const yargs = require("yargs");
+const path = require("path");
+const fs = require("fs");
+const parse = require("./dist/parse").default;
+const readdir = require('readdir');
+
+
+const args = yargs
+    .usage('$0 Starts eSQLate connected to an already known PostgreSQL server')
+    .version(false)
+    .example("$0 --help", "Shows help\n")
+    .env('PG')
+    .option('r', {alias: 'root', describe: "The directory that hosts the wiki", type: "string"})
+    .option('f', {alias: 'filename', describe: "The wiki file to process", type: "string"})
+    .demand("root")
+    // .demand("filename")
+    .normalize("root")
+    // .normalize("filename")
+    .coerce("definition_directory", path.resolve)
+    .coerce("root", path.resolve)
+    // .coerce("filename", path.resolve)
+    .check((args) => {
+
+        if (!fs.existsSync(args.root)) {
+            throw new Error("The root of the wiki does not exist");
+        }
+        return true;
+    })
+    .help()
+    .argv;
+
+// [ readdir.ReadDirOptions.NON_RECURSIVE],
+const relativePaths = readdir.readSync(args.root, ['*.md']).map(
+	(file) => {
+		return path.join(args.root, file)
+			.substr(args.root.length)
+			.replace(/^\//, '');
+	}
+);
+
+relativePaths.forEach((rp) => {
+	parse(args.root, rp).then(console.log);
+});
+// console.log(fullPaths);
+
+	// if (!fs.existsSync(args.filename)) {
+	//     throw new Error("The wiki filename does not exist");
+	// }
+

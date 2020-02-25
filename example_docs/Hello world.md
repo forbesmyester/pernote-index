@@ -1,0 +1,15 @@
+# Hello world!
+
+Link to [Number2](#Number2)
+Another link to [Number2](hello_world.md#Number2)
+
+## Number2
+
+Was thinking about [gliding][glide] [\`canoe paddling\`](canoe) [bounce](./pogo/stick) [pogostick](./pogo/stick "Pogo Stick") [pogostick](./pogo/stick "Pogo Stick") [cycling](cycling) [walking] or [swimming] to work!
+
+
+[walking]: <walking> "Walk"
+[glide]: glide
+
+
+href:heading:tag
