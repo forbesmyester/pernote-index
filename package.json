@@ -4,7 +4,7 @@
   "description": "Organize Thinking",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node_modules/.bin/tsc"
   },
   "author": "Matt Forrester",
   "license": "GPL-3.0-or-later",
