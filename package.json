@@ -1,13 +1,14 @@
 {
   "name": "pernote-index",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Build a searchable index for forbesmyester/pernote",
   "main": "index.js",
   "bin": {
     "pernote-index": "./pernote-index"
   },
   "scripts": {
-    "build": "node_modules/.bin/tsc"
+    "build": "node_modules/.bin/tsc",
+    "install": "npm run-script build"
   },
   "author": "Matt Forrester",
   "license": "GPL-3.0-or-later",
