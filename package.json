@@ -1,8 +1,11 @@
 {
-  "name": "wetwaremap",
-  "version": "0.0.0",
-  "description": "Organize Thinking",
+  "name": "pernote-index",
+  "version": "0.0.2",
+  "description": "Build a searchable index for forbesmyester/pernote",
   "main": "index.js",
+  "bin": {
+    "pernote-index": "./pernote-index"
+  },
   "scripts": {
     "build": "node_modules/.bin/tsc"
   },
